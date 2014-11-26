@@ -2,8 +2,8 @@ graph = new joint.dia.Graph;
 
 paper = new joint.dia.Paper({
 	el:$('#canvas'),
-    width: 900,
-    height: 600,
+    width: 2000,
+    height: 2000,
     gridSize: 1,
     model: graph
 });

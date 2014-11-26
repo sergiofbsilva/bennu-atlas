@@ -121,7 +121,7 @@ app.controller('MainCtrl', function($scope, $http) {
   	  	graph.addCell(cell);
   	  	$scope.cells.push(cell);
   	  	joint.layout.GridLayout.layout(graph, {
-	  		columns: 3,
+	  		columns: 5,
 	  		dx: 150,
 	  		dy: 5
 		});
