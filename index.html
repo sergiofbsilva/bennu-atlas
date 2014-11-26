@@ -22,6 +22,16 @@
 
   <body ng-controller="MainCtrl">
     <div class="row">
+      <div class="col-md-push-3 col-md-9">
+        <button class="btn" ng-click="clear()">clear</button>
+        <button class="btn" id="btn-center">center</button>
+        <button class="btn" id="btn-center-content">center content</button>
+        <button class="btn" id="btn-zoomout">zoom out</button>
+        <button class="btn" id="btn-zoomin">zoom in</button>
+        <button class="btn" id="btn-zoomtofit">zoom to fit</button>
+      </div>
+    </div>
+    <div class="row">
       <div class="col-md-3">
         <div class="dropdown" style="height: 800px; overflow:scroll">
           <input type="text" ng-model="search"/>

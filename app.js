@@ -64,7 +64,7 @@ app.controller('MainCtrl', function($scope, $http) {
   		}
 
   		console.log('from : ' + classFrom.id + ' to: ' + classTo.id);
-  		return new uml.Composition({source : {id : classFrom.id }, target : {id : classTo.id} });
+  		return new uml.Composition({source : {id : classFrom.id }, target : {id : classTo.id}});
   	});
 
   	_.each(relationCells, function(relCell) {
@@ -99,11 +99,17 @@ app.controller('MainCtrl', function($scope, $http) {
   		name : className,
   		attributes : attrs,
   		methods : []
+  		
   	});
 
   };
 
   $scope.cells = [];
+
+  $scope.clear = function() {
+  	$scope.cells = [];
+  	graph.resetCells();
+  };
 
   var hasClassCell = function(className) {
   	debugger;
@@ -120,12 +126,6 @@ app.controller('MainCtrl', function($scope, $http) {
   		console.log(cell);
   	  	graph.addCell(cell);
   	  	$scope.cells.push(cell);
-  	  	joint.layout.GridLayout.layout(graph, {
-	  		columns: 5,
-	  		dx: 150,
-	  		dy: 5
-		});
-
   };
 
   var internalAddClass = function(clazz, processRelations) {
@@ -150,11 +150,18 @@ app.controller('MainCtrl', function($scope, $http) {
 
   	internalAddClass(clazz, true);
 
- //  	joint.layout.DirectedGraph.layout(graph, {
- //   	 	nodeSep: 50,
- //    	edgeSep: 80,
- //    	rankDir: "TB"
-	// });
+  	joint.layout.DirectedGraph.layout(graph, {
+   	 	nodeSep: 50,
+    	edgeSep: 80,
+    	rankDir: "TB"
+	});
+
+  // 	joint.layout.GridLayout.layout(graph, {
+	 //  		columns: 5,
+	 //  		dx: 150,
+	 //  		dy: 5
+		// });
+  	
 
   	// $scope.visibleClasses.push(clazz);
   };
